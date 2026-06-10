@@ -1,0 +1,109 @@
+<!-- Define el tipo de documento como HTML5 para el navegador -->
+<!DOCTYPE html>
+<!-- Define el idioma del sitio como Español -->
+<html lang="es">
+<head>
+    <!-- Define la codificación de caracteres para el correcto renderizado de caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configura el viewport para que la escala sea responsiva en tabletas y celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la pestaña en la navegación del menú -->
+    <title>NEON BYTE - Nuestro Menú</title>
+    <!-- Enlace a la hoja de estilos compartida por el proyecto -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Carga de tipografías desde la API de fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado estructural idéntico para mantener la consistencia visual -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">NEON BYTE <span>Café</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <!-- Enlace de menú marcado con la clase activa en esta página -->
+                <a href="menu.html" class="nav-link active">Menú</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cuerpo principal del catálogo usando la etiqueta semántica main -->
+    <main class="menu-page container">
+        <!-- Cabecera interna de la sección con títulos del menú -->
+        <header class="page-header">
+            <h2>Nuestro Menú Digital 2099</h2>
+            <p>Categorías</p>
+        </header>
+
+        <!-- Contenedor de botones de filtro. El atributo 'data-filter' será leído por JavaScript -->
+        <div class="filter-container">
+            <!-- Botón activo por defecto para mostrar todos los elementos disponibles -->
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <!-- Botón de filtro exclusivo para la categoría de bebidas -->
+            <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+            <!-- Botón de filtro exclusivo para la categoría de repostería -->
+            <button class="filter-btn" data-filter="reposteria">Postres</button>
+        </div>
+
+        <!-- Cuadrícula (Grid) que ordenará los productos de manera dinámica y responsiva -->
+        <div class="menu-grid">
+            
+            <!-- Producto 1: Se identifica en la categoría 'bebidas' mediante el atributo de datos personalizados (data-category) -->
+            <div class="menu-item" data-category="bebidas">
+                <!-- Imagen local ubicada dentro de la carpeta /imagenes del proyecto -->
+                <img src="imagenes/quantumm late.png" alt="Café Quantum Latte">
+                <!-- Bloque contenedor con la información textual del producto -->
+                <div class="item-info">
+                    <h3>Quantum Latte</h3>
+                    <p class="item-desc">Espresso premium con espuma luminiscente inspirada en la computación cuántica.</p>
+                    <span class="item-price">$4.50</span>
+                </div>
+            </div>
+
+            <!-- Producto 2: Item perteneciente a la categoría 'bebidas' -->
+            <div class="menu-item" data-category="bebidas">
+                <!-- Imagen local correspondiente al café americano -->
+                <img src="imagenes/neon mocha.png" alt="Neon Mocha">
+                <div class="item-info">
+                    <h3>Neon Mocha</h3>
+                    <p class="item-desc">Chocolate oscuro y café intenso con un toque eléctrico de vainilla azul.</p>
+                    <span class="item-price">$3.50</span>
+                </div>
+            </div>
+
+            <!-- Producto 3: Item perteneciente a la categoría 'reposteria' -->
+            <div class="menu-item" data-category="reposteria">
+                <!-- Imagen local correspondiente al croissant horneado -->
+                <img src="imagenes/pixel cheesecake.png" alt="Pixel Cheesecake">
+                <div class="item-info">
+                    <h3>Pixel Cheesecake</h3>
+                    <p class="item-desc">Cheesecake decorado con cubos de colores que simulan píxeles digitales.</p>
+                    <span class="item-price">$3.80</span>
+                </div>
+            </div>
+
+            <!-- Producto 4: Item perteneciente a la categoría 'reposteria' -->
+            <div class="menu-item" data-category="reposteria">
+                <!-- Imagen local correspondiente a la rebanada de pastel de chocolate -->
+                <img src="imagenes/data donut.png" alt="Data Donut">
+                <div class="item-info">
+                    <h3>Data Donut</h3>
+                    <p class="item-desc">Dona glaseada con diseño holográfico y chispas metálicas comestibles.</p>
+                    <span class="item-price">$5.00</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de página idéntico para mantener el branding del sitio web -->
+    <footer class="footer">
+        <p>&copy; 2026 Neon Byte. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Carga del JavaScript al final del documento para no bloquear el renderizado del HTML -->
+    <script src="script.js"></script>
+</body>
+</html>

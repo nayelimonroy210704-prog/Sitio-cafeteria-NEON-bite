@@ -1,0 +1,90 @@
+<!-- Define el tipo de documento como HTML5 para el navegador -->
+<!DOCTYPE html>
+<!-- Define el idioma de la página de contacto como Español -->
+<html lang="es">
+<head>
+    <!-- Define la codificación universal para evitar fallas de tipografía en las palabras -->
+    <meta charset="UTF-8">
+    <!-- Configura el visor adaptativo para pantallas de diversos tamaños (Móvil First) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título específico para la pestaña de la página de contacto -->
+    <title>NEON BYTE- Contacto</title>
+    <!-- Enlace a los estilos CSS centrales -->
+    <link class="stylesheet" rel="stylesheet" href="styles.css">
+    <!-- Inclusión de fuentes externas desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado estructural idéntico para asegurar la correcta navegación del alumno -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">NEON BYTE <span>Café</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="menu.html" class="nav-link">Menú</a>
+                <!-- Enlace activo resaltado para ubicar la sección de contacto -->
+                <a href="contacto.html" class="nav-link active">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la página estructurado mediante semántica CSS -->
+    <main class="contacto-page container">
+        <!-- Envoltura flexible para organizar la información y el formulario a dos columnas -->
+        <div class="contacto-wrapper">
+            
+            <!-- Bloque izquierdo: Información física e institucional del local -->
+            <div class="contacto-info">
+                <h2>Conéctate con la Red</h2>
+                <p>¿Tienes alguna consulta o deseas reservar un espacio en nuestra zona gamer? Envíanos un mensaje y nuestro sistema responderá lo antes posible.</p>
+                <!-- Lista de detalles clave sobre ubicación y horas de servicio -->
+                <div class="info-detalles">
+                    <p><strong>Dirección:</strong> Av. de la Torrefacción 404, Ciudad Gourmet</p>
+                    <p><strong>Horario:</strong> Lunes a Sábado: 7:00 AM - 9:00 PM</p>
+                    <p><strong>Teléfono:</strong> +123 456 7890</p>
+                </div>
+            </div>
+
+            <!-- Bloque derecho: Contenedor interactivo del formulario de datos -->
+            <div class="contacto-form-container">
+                <h2>Nos pondremos en contacto contigo desde la red NEON BYTE.</h2>
+                <!-- Formulario identificado con una ID para que Javascript capture el evento submit -->
+                <form id="contactForm" class="contact-form">
+                    <!-- Grupo del formulario para el campo del nombre -->
+                    <div class="form-group">
+                        <label for="nombre">Alias Digital</label>
+                        <!-- Input obligatorio con marcador de posición de ejemplo -->
+                        <input type="text" id="nombre" required placeholder="Ej. Jane Doe">
+                    </div>
+                    <!-- Grupo del formulario para el campo del correo electrónico -->
+                    <div class="form-group">
+                        <label for="email">Correo Neural</label>
+                        <!-- Input obligatorio de tipo email para forzar validación nativa del navegador -->
+                        <input type="email" id="email" required placeholder="ejemplo@correo.com">
+                    </div>
+                    <!-- Grupo del formulario para el cuadro de texto del mensaje largo -->
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje Encriptado</label>
+                        <!-- Caja de texto multilínea con renglones iniciales definidos -->
+                        <textarea id="mensaje" rows="5" required placeholder="Cuéntanos cuántas personas vienen o déjanos tus dudas..."></textarea>
+                    </div>
+                    <!-- Botón de tipo submit para activar la lógica de envío controlada por script -->
+                    <button type="submit" class="btn-primary">Enviar Transmisión</button>
+                </form>
+                <!-- Contenedor de retroalimentación, oculto inicialmente por CSS (.hidden) -->
+                <div id="formFeedback" class="form-feedback hidden"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de página estándar -->
+    <footer class="footer">
+        <p>&copy; 2026 Neon Byte. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Archivo JS para validar y capturar los eventos del formulario sin recargar -->
+    <script src="script.js"></script>
+</body>
+</html>
