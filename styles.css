@@ -1,0 +1,404 @@
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO (Arquitectura limpia para enseñar CSS moderno usando :root)
+   ========================================================================== */
+:root {
+    --primary-color: #FF00FF;    /* Tono café de tostado medio para botones y enlaces */
+    --secondary-color: #00FFFF;  /* Tono miel/café claro para filtros y acentos visuales */
+    --dark-color: #0A0A0F;       /* Tono chocolate oscuro profundo para títulos y legibilidad */
+    --light-color: #161B22;      /* Color crema muy suave para el fondo general, evita fatiga visual */
+    --gray-color: #A0AEC0;       /* Gris cálido intermedio usado en descripciones secundarias */
+    --font-heading: 'Orbitron', sans-serif; /* Fuente con serifas de alta elegancia para títulos */
+    --font-body: 'Poppins', sans-serif;         /* Fuente geométrica sans-serif óptima para bloques de lectura */
+    --transition-smooth: all 0.3s ease;       /* Transición estándar para animaciones suaves en hovers */
+}
+
+/* ==========================================================================
+   2. REINICIO DE ESTILOS (Reset de márgenes para asegurar consistencia entre navegadores)
+   ========================================================================== */
+* {
+    margin: 0;                   /* Remueve márgenes automáticos de todos los elementos */
+    padding: 0;                  /* Remueve rellenos automáticos de todos los elementos */
+    box-sizing: border-box;      /* Incluye el borde y relleno dentro del cálculo total del ancho de caja */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #0A0A0F;
+    color: #FFFFFF;
+    line-height: 1.5;                   /* Ajusta el interlineado para mejorar la lectura cómoda */
+}
+
+/* Contenedor utilitario estándar para centrar los bloques principales en la pantalla */
+.container {
+    width: 90%;                  /* Ocupa el 90% del ancho del dispositivo en pantallas pequeñas */
+    max-width: 1200px;           /* Limita el ancho máximo a 1200 píxeles en pantallas grandes */
+    margin: auto;              /* Centra de forma automática el contenedor horizontalmente */
+    padding: 60px ;             /* Añade un colchón superior e inferior para separar secciones */
+}
+
+/* Enlaces limpios sin decoraciones forzadas */
+a {
+    text-decoration: none;       /* Elimina la línea subrayada por defecto de las etiquetas <a> */
+    color: inherit;              /* Hace que herede el color de texto de su elemento contenedor */
+}
+
+/* ==========================================================================
+   3. MAQUETACIÓN DEL HEADER Y MENÚ DE NAVEGACIÓN
+   ========================================================================== */
+.header {
+    background-color: #111827;
+    box-shadow: 0 0 15px var(--primary-color);              /* Posiciona el menú sobre cualquier otro elemento de la página */
+}
+
+.nav-container {
+    display: block;              /* Comportamiento de bloque clásico */
+    max-width: 1200px;           /* Centrado y alineación similar al contenedor global */
+    margin: 0 auto;              /* Centra la barra de navegación */
+    padding: 20px 5%;            /* Espaciado interno para dar aire al logotipo y enlaces */
+}
+
+/* Alineación clásica usando flotantes o distribución de texto para compatibilidad base */
+.logo {
+     color: var(--primary-color);
+    text-shadow:
+        0 0 5px var(--primary-color),
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color);                /* Alinea el logo a la izquierda */
+}
+
+.logo span {
+     color: var(--secondary-color);
+    text-shadow:
+        0 0 5px var(--secondary-color),
+        0 0 10px var(--secondary-color); /* Pinta la palabra Aroma con el tono miel de acento */
+}
+
+.nav-menu {
+    float: right;                /* Coloca el listado de enlaces a la derecha de la barra */
+    margin-top: 5px;             /* Ajuste vertical milimétrico para alinear con el logo */
+}
+
+.nav-link {
+    font-weight: 600;            /* Hace que el texto del menú sea semi-negrita */
+    color: var(--gray-color);    /* Color gris opaco por defecto para los enlaces no activos */
+    margin-left: 30px;           /* Separación horizontal entre cada opción del menú */
+    padding-bottom: 5px;         /* Espacio inferior para colocar una línea decorativa */
+    border-bottom: 2px solid transparent; /* Crea un borde transparente para evitar saltos bruscos en hover */
+    transition: var(--transition-smooth); /* Aplica efecto de transición suave al cambiar de color */
+    display: inline-block;       /* Permite aplicar márgenes horizontales de forma correcta */
+}
+
+/* Reglas de activación y efecto hover sobre los enlaces de navegación */
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);         /* Cambia al color café principal */
+    border-bottom: 2px solid var(--primary-color); /* Muestra el borde inferior pintado de café */
+}
+
+/* Limpiador de flotados (Clearfix) para evitar colapsos de altura en el header */
+.nav-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ==========================================================================
+   4. DISEÑO DE LA SECCIÓN HERO (PÁGINA PRINCIPAL)
+   ========================================================================== */
+.hero-section {
+    /* Aplica un degradado oscuro superpuesto junto a la imagen local ubicada en /imagenes */
+   background:
+linear-gradient(
+rgba(10,10,15,0.75),
+rgba(20,0,40,0.75)
+),
+url("banner.png")
+no-repeat center center/cover; 
+height: 70vh;
+text-align: center;
+padding-top: 15vh;
+/* Cambia el color de la tipografía a blanco para alto contraste */
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading); /* Aplica la tipografía decorativa para títulos */
+    font-size: 3.2rem;           /* Tamaño grande e imponente para entornos de escritorio */
+    margin-bottom: 20px;         /* Separación con el párrafo de abajo */
+}
+
+.hero-content p {
+    font-size: 1.2rem;           /* Tamaño de texto de subtítulo legible */
+    margin-bottom: 35px;         /* Espacio amplio antes del botón de acción */
+    font-weight: 300;            /* Estilo de tipografía delgada para balancear peso visual */
+}
+
+/* Estilización del Botón Primario */
+.btn-primary {
+    background-color: var(--primary-color); /* Color café base */
+    color: #ffffff;              /* Texto blanco */
+    padding: 12px 32px;          /* Colchón interno del botón */
+    border-radius: 4px;          /* Esquinas sutilmente redondeadas para un look moderno */
+    font-weight: 600;            /* Resalta el texto del botón */
+    border: none;                /* Quita bordes toscos de fábrica */
+    cursor: pointer;             /* Cambia el cursor a mano interactiva al pasar encima */
+    display: inline-block;       /* Permite la correcta administración del padding en enlaces */
+    transition: var(--transition-smooth); /* Suaviza el cambio de color de fondo */
+}
+
+/* Cambio de color al pasar el mouse por encima del botón */
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: #000;
+    box-shadow:
+        0 0 10px var(--secondary-color),
+        0 0 20px var(--secondary-color); /* Cambia al tono café más oscuro del proyecto */
+}
+
+/* Sección estática informativa */
+.about-summary {
+    text-align: center;          /* Centra la alineación del texto */
+    max-width: 800px;            /* Limita el ancho de lectura para que no sea cansado */
+    margin: 40px auto;           /* Centrado de caja completo */
+}
+
+.about-summary h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   5. DISEÑO DE LA PÁGINA DE MENÚ Y SISTEMA DE FILTRADO GRID
+   ========================================================================== */
+.page-header {
+    text-align: center;          /* Centra el título del menú */
+    margin-bottom: 40px;         /* Separa el título de los botones de control */
+}
+
+.page-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+/* Caja contenedora de los botones de filtrado interactivo */
+.filter-container {
+    text-align: center;          /* Centra el bloque de botones horizontalmente */
+    margin-bottom: 40px;         /* Separa los botones de las tarjetas de productos */
+}
+
+/* Botones de control del filtro */
+.filter-btn {
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: 2px solid var(--secondary-color); /* Borde con el tono miel definido */
+    color: var(--secondary-color); /* Color de texto que empareja con el borde */
+    padding: 8px 22px;           /* Relleno interno para simular una cápsula */
+    border-radius: 20px;         /* Esquinas totalmente redondeadas (estilo píldora) */
+    cursor: pointer;             /* Cursor interactivo */
+    font-weight: 600;            /* Texto remarcado */
+    margin: 0 5px;               /* Separación lateral horizontal entre botones */
+    transition: var(--transition-smooth); /* Animación de color */
+    display: inline-block;
+}
+
+/* Estado activo asignado por defecto o mediante eventos JavaScript */
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--secondary-color); /* Rellena el fondo con color miel */
+    color: #ffffff;              /* Cambia el texto a blanco para legibilidad */
+}
+
+/* Caja de rejilla (Grid) que distribuye las tarjetas de productos de forma automática */
+.menu-grid {
+    display: block;              /* Bloque contenedor */
+}
+
+/* Maquetación individual de la tarjeta del producto */
+.menu-item {
+    background-color: #161B22;
+    border: 1px solid #2D3748;
+                /* Alinea en bloque flotante continuo */
+}
+
+/* Efecto estético de elevación al posicionar el mouse sobre el producto */
+.menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 15px var(--primary-color); /* Eleva el elemento 6 píxeles hacia arriba */
+}
+
+/* Configuración de las imágenes del catálogo */
+.menu-item img {
+    width: 100%;                 /* Expande la imagen al total del ancho de la tarjeta */
+    height: 180px;               /* Fija una altura uniforme para balancear el diseño */
+    object-fit: cover;           /* Recorta la imagen automáticamente manteniendo su proporción */
+    display: block;
+}
+
+/* Bloque interno acolchado para los textos de la tarjeta */
+.item-info {
+    padding: 20px;               /* Relleno perimetral parejo */
+}
+
+.item-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.item-desc {
+    color: var(--gray-color);    /* Usa el tono gris para descripciones de apoyo */
+    font-size: 0.85rem;          /* Tamaño tipográfico levemente reducido */
+    margin-bottom: 15px;         /* Separación con la etiqueta de precio */
+    height: 60px;                /* Altura fija para que todas las descripciones se alineen */
+    overflow: hidden;            /* Recorta textos si exceden el espacio determinado */
+}
+
+.item-price {
+    font-weight: 600;            /* Resalta el costo del producto */
+    color: var(--primary-color); /* Color café identificador */
+    font-size: 1.1rem;
+}
+
+/* Limpiador de flotados en el Grid de menú */
+.menu-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Clase utilitaria inyectada dinámicamente por JavaScript para ocultar productos filtrados */
+.menu-item.hidden {
+    display: none !important;    /* Forzado absoluto de desaparición en pantalla */
+}
+
+/* ==========================================================================
+   6. DISEÑO DE LA SECCIÓN DE CONTACTO Y ESTRUCTURA DE FORMULARIO
+   ========================================================================== */
+.contacto-wrapper {
+    display: block;              /* Bloque estructural base */
+}
+
+.contacto-info {
+    width: 45%;                  /* Columna izquierda del panel descriptivo */
+    float: left;                 /* Flota a la izquierda */
+    padding-right: 5%;           /* Margen interno derecho divisor */
+}
+
+.contacto-form-container {
+    width: 50%;                  /* Columna derecha dedicada enteramente al formulario */
+    float: right;                /* Flota a la derecha */
+}
+
+.contacto-info h2, .contacto-form-container h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.info-detalles p {
+    margin-top: 15 px;            /* Separa las líneas de texto del bloque informativo */
+    font-size: 0.95rem;
+}
+
+/* Organización y diseño de controles del formulario de contacto */
+.form-group {
+    margin-bottom: 20px;         /* Margen de separación constante entre inputs */
+}
+
+.form-group label {
+    display: block;              /* Obliga a la etiqueta a posicionarse arriba del input */
+    margin-bottom: 6px;          /* Espaciado corto inferior */
+    font-weight: 600;            /* Texto en semi-negrita */
+    font-size: 0.9rem;
+}
+
+/* Estilos compartidos para campos normales y cajas de texto largas */
+.form-group input, .form-group textarea {
+    width: 100%;                 /* Llena el total del ancho de su columna */
+    padding: 12px;               /* Relleno cómodo para facilitar la escritura del usuario */
+    border: 1px solid #dddddd;   /* Borde gris claro neutro estándar */
+    border-radius: 4px;          /* Redondeado fino en esquinas */
+    font-family: inherit;        /* Asegura heredar la fuente Poppins del proyecto */
+}
+
+/* Iluminación interactiva cuando el alumno/usuario hace clic en un input */
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;               /* Remueve la línea negra de enfoque nativa de los navegadores */
+    border-color: var(--primary-color); /* Cambia el borde al color café identificador */
+}
+
+/* Contenedor de confirmación de envío exitoso manipulado por JS */
+.form-feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Estado de éxito inyectado cuando pasa la validación */
+.form-feedback.success {
+    background-color: #E8F5E9;   /* Fondo verde claro suave institucional */
+    color: #2E7D32;              /* Texto verde oscuro con excelente contraste */
+    border: 1px solid #C8E6C9;   /* Línea perimetral delimitadora */
+}
+
+/* Ocultación nativa para elementos que dependen del flujo interactivo */
+.form-feedback.hidden {
+    display: none;               /* Quita por completo el objeto del árbol visual */
+}
+
+/* Limpiador de flotados para la sección de contacto */
+.contacto-wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ==========================================================================
+   7. SECCIÓN DE PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.footer {
+    background-color: #000;
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDAD (Media Queries para enseñar diseño adaptable y móvil a la clase)
+   ========================================================================== */
+@media (max-width: 900px) {
+    /* Ajusta las tarjetas del menú a dos columnas en pantallas de tabletas */
+    .menu-item {
+        width: 46%;
+        margin: 2%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Destruye los flotados de la navegación para apilar los componentes en vertical */
+    .logo, .nav-menu {
+        float: none;
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+    }
+    .nav-link {
+        margin: 0 10px;          /* Reajusta márgenes en pantallas reducidas */
+    }
+    /* El banner principal disminuye tipografía en pantallas móviles */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    /* Rompe las columnas gemelas de la sección de contacto para apilarlas limpiamente */
+    .contacto-info, .contacto-form-container {
+        width: 100%;
+        float: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    /* Convierte las tarjetas del catálogo a una sola columna completa */
+    .menu-item {
+        width: 98%;
+        margin: 10px 1%;
+        float: none;
+    }
+}
